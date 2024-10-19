@@ -14,7 +14,6 @@ export class CrearUsuarioComponent {
   usuarios = {
     nombre: "",
     apellido: "",
-    edad: "",
     identificacion: "",
     fechaNacimiento: "",
     genero: "",
@@ -34,7 +33,7 @@ export class CrearUsuarioComponent {
       return;
     }
 
-    this.resultado = 'Formulario enviado exitosamente!';
-    //console.log('Usuario creado:', this.usuarios);
+    this.resultado = 'Formulario enviado exitosamente';
+    console.log('Usuario creado:', this.usuarios);
   }
 }

@@ -12,7 +12,13 @@
 
         <div class="mb-3">
             <label for="Identificacion" class="form-label"> Identificacion</label>
-            <input type="text" class="form-control" name="identificacion" [(ngModel)]="usuarios.identificacion" required>
+            <input type="text" class="form-control" name="identificacion" [(ngModel)]="usuarios.identificacion" required #identi="ngModel" minlength="10" 
+            maxlength="10" 
+            pattern="^[0-9]{10}$">
+        </div>
+
+        <div class="alert alert-danger mt-1" [hidden]="identi.valid || identi.pristine">
+            La identificacion debe tener 10 digitos
         </div>
 
         <div class="mb-3">

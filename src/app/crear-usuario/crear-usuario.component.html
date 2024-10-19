@@ -1,16 +1,44 @@
-<form>
-    <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="container">
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+        <div class="mb-3">
+            <label for="Nombre" class="form-label"> Nombre</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="usuarios.nombre" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="apellido" [(ngModel)]="usuarios.apellido" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Identificacion" class="form-label"> Identificacion</label>
+            <input type="text" class="form-control" name="identificacion" [(ngModel)]="usuarios.identificacion" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" name="fNacimiento" [(ngModel)]="usuarios.fechaNacimiento" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="Genero">Genero</label>
+            <select name="Genero" id="Genero" class="form-select" name="genero" [(ngModel)]="usuarios.genero" required>
+                <option value="Mujer">Mujer</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Otros">Otro</option>
+            </select>
+        </div>
+    
+        <div class="mb-3">
+            <label for="Pais">Pais</label>
+            <select name="Pais" id="Pais" class="form-select" name="pais" [(ngModel)]="usuarios.pais" required>
+                <option value="Colombia">Colombia</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Chile">Chile</option>
+            </select>
+        </div>
+        <div *ngIf="mensaje" class="text-danger">{{ mensaje }}</div>
+        <div *ngIf="resultado" class="text-success">{{ resultado }}</div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
